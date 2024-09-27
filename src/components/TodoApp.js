@@ -17,18 +17,20 @@ const TodoApp = ({ }) => {
 
     /*Handles adding new todo task */
     const handleSubmit = () => {
-        let newTodoItem = {
-            title: title,
-            description: description,
-            completed: false
-        };
+        if (!isEmpty(title)) {
+            let newTodoItem = {
+                title: title,
+                description: description,
+                completed: false
+            };
 
-        let updatedTodoArr = [...allTodos];
-        updatedTodoArr.push(newTodoItem);
-        setAllTodos(updatedTodoArr);
-        setTitle('');
-        setDescription('');
-        localStorage.setItem('todolist', JSON.stringify(updatedTodoArr));
+            let updatedTodoArr = [...allTodos];
+            updatedTodoArr.push(newTodoItem);
+            setAllTodos(updatedTodoArr);
+            setTitle('');
+            setDescription('');
+            localStorage.setItem('todolist', JSON.stringify(updatedTodoArr));
+        }
     };
 
     /*Handles todo task deletion*/

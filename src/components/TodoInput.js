@@ -5,34 +5,38 @@ const TodoInput = ({ title, description, setTitle, setDescription, handleSubmit 
     return (
 
         <div className='todo-input'>
-            <div>
-                <label>Title:</label>
-                <input
-                    type="text"
-                    value={title}
-                    onChange={e => setTitle(e.target.value)}
-                    placeholder="What's the task title?"
-                />
-            </div>
-            <br />
-            <div>
-                <label>Description:</label>
-                <textarea
+            <form onSubmit={() => { handleSubmit(); }}>
+                <div>
 
-                    value={description}
-                    onChange={e => setDescription(e.target.value)}
-                    placeholder="What's the task description?"
-                />
-            </div>
-            <div>
-                <button
-                    type="button"
-                    onClick={handleSubmit}
-                    className="primaryBtn"
-                >
-                    Add
-                </button>
-            </div>
+                    <label>Title:</label>&nbsp;
+                    <input
+                        type="text"
+                        required
+                        value={title}
+                        onChange={e => setTitle(e.target.value)}
+                        placeholder="What's the task title?"
+                    />
+                </div>
+                <br />
+                <div>
+                    <label>Description:</label>&nbsp;
+                    <textarea
+
+                        value={description}
+                        onChange={e => setDescription(e.target.value)}
+                        placeholder="What's the task description?"
+                    />
+                </div>
+                <div>
+                    <button
+                        type="submit"
+                        // onClick={handleSubmit}
+                        className="primaryBtn"
+                    >
+                        Add
+                    </button>
+                </div>
+            </form>
         </div>
 
 
